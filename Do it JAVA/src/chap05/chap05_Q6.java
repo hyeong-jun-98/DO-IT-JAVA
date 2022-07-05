@@ -1,0 +1,32 @@
+package chap05;
+
+import java.util.Scanner;
+
+public class chap05_Q6 {
+	static String[] name = { "A 기둥", "B 기둥", "C 기둥" };
+
+	static void hanoi(int num, int start, int finish) {
+
+		if (num > 1) {
+			hanoi(num - 1, start, 6 - start - finish);
+		}
+
+		System.out.println("원반[" + num + "]을 " + name[start - 1] + "기둥에서 " + name[finish - 1] + "기둥으로 옮김.");
+
+		if (num > 1) {
+			hanoi(num - 1, 6 - start - finish, finish);
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("하노이의 탑");
+		System.out.print("원반개수 : ");
+		int num = sc.nextInt();
+
+		hanoi(num, 1, 3);
+
+	}
+
+}
